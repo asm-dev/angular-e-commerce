@@ -1,59 +1,41 @@
-# OnlineShop
+# Tienda Online - Proyecto Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.8.
+Este proyecto forma parte de una actividad del máster de desarrollo web avanzado, centrada en la aplicación de conceptos clave del framework Angular. El objetivo principal es implementar una tienda online que consuma datos de una API externa utilizando un enfoque moderno basado en _standalone components_. Entre los requisitos de la actividad se incluía la creación de rutas dinámicas, el uso de un servicio para gestionar la obtención de datos desde una API pública, la creación y uso de _pipes_ personalizadas, así como la estructuración del proyecto siguiendo buenas prácticas tanto a nivel de estilo como de arquitectura.
 
-## Development server
+## Estructura funcional del proyecto
 
-To start a local development server, run:
+El proyecto está organizado en componentes independientes que reflejan una arquitectura clara basada en vistas. Se ha utilizado el sistema de rutas de Angular para navegar entre las distintas secciones de la aplicación de forma dinámica.
 
-```bash
-ng serve
-```
+### Servicio de datos
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Toda la interacción con la API se realiza mediante un servicio centralizado (`ProductService`). Este servicio utiliza `HttpClient` para realizar peticiones HTTP a los diferentes endpoints expuestos por la API de Fake Store. De este modo, el servicio encapsula la lógica de acceso a datos y facilita su reutilización por parte de los componentes.
 
-## Code scaffolding
+Las rutas que se consumen desde el servicio son:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- `/products/categories`: devuelve un array de strings con los nombres de las categorías disponibles de productos
+- `/products/category/:category`: devuelve todos los productos de una categoría concreta
+- `/products/:id`: devuelve los detalles de un producto en concreto
 
-```bash
-ng generate component component-name
-```
+### Componentes
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- `CategoriesComponent`: muestra las categorías disponibles en la API. Cada categoría se presenta como un botón que redirige al listado de productos correspondientes.
+- `ProductsComponent`: muestra un grid de productos pertenecientes a una categoría. Cada producto contiene una imagen, un título, un precio y un botón para acceder a su vista detallada.
+- `ProductDetailComponent`: presenta información completa sobre un producto concreto, incluyendo la descripción, la categoría a la que pertenece, el precio y la imagen correspondiente.
 
-```bash
-ng generate --help
-```
+### Pipes personalizadas
 
-## Building
+Se ha creado una pipe personalizada llamada `CapitalizePipe` que transforma la primera letra de una cadena a mayúscula, dejando el resto en minúsculas. Esta pipe se ha utilizado, por ejemplo, para mejorar la presentación del nombre de las categorías.
 
-To build the project run:
+### Estilos y estructura visual
 
-```bash
-ng build
-```
+Los estilos se han implementado utilizando ficheros SCSS específicos para cada componente, con el fin de mantener una separación clara de responsabilidades y facilitar el mantenimiento. Se ha utilizado una tipografía moderna, una paleta de colores neutra con detalles en azul oscuro, y un sistema de diseño basado en tarjetas (_cards_) para presentar los productos de manera clara y coherente. La estructura visual se ha desarrollado con técnicas como _Flexbox_ y _Grid_, asegurando una presentación equilibrada y centrada tanto en escritorio como en pantallas reducidas.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Posibles ampliaciones
 
-## Running unit tests
+Este proyecto puede extenderse fácilmente para incluir funcionalidades como:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Gestión de un carrito de compra con almacenamiento en local o estado compartido
+- Añadir paginación o carga por scroll
+- Agregar filtros avanzados por precio o categoría
+- Implementar un sistema de autenticación y login para simular una experiencia real de e-commerce
+- Despliegue continuo con Firebase Hosting, GitHub Actions u otras plataformas
