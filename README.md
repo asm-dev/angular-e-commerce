@@ -2,6 +2,8 @@
 
 Este proyecto forma parte de una actividad del máster de desarrollo web avanzado, centrada en la aplicación de conceptos clave del framework Angular. El objetivo principal es implementar una tienda online que consuma datos de una API externa utilizando un enfoque moderno basado en _standalone components_. Entre los requisitos de la actividad se incluía la creación de rutas dinámicas, el uso de un servicio para gestionar la obtención de datos desde una API pública, la creación y uso de _pipes_ personalizadas, así como la estructuración del proyecto siguiendo buenas prácticas tanto a nivel de estilo como de arquitectura.
 
+Además, se aprovecha para hacer un **deploy** de esta POC en **Firebase**, puedes verlo en [este link](https://poc-angular-shop.web.app/).
+
 ## Estructura funcional del proyecto
 
 El proyecto está organizado en componentes independientes que reflejan una arquitectura clara basada en vistas. Se ha utilizado el sistema de rutas de Angular para navegar entre las distintas secciones de la aplicación de forma dinámica.
