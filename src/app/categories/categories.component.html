@@ -1,1 +1,6 @@
-<p>Hola mundo</p>
+<h2>Categorías</h2>
+<ul>
+  <li *ngFor="let category of categories">
+    <button (click)="goToCategory(category)">{{ category }}</button>
+  </li>
+</ul>
