@@ -1,0 +1,44 @@
+.detail-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+  }
+
+  .detail-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+
+    img {
+      width: 200px;
+      border-radius: 10px;
+    }
+
+    .info {
+      text-align: center;
+
+      .desc {
+        margin-bottom: 1.5rem;
+        line-height: 1.4;
+        font-size: 1rem;
+        color: #444;
+        text-align: start;
+      }
+
+      p {
+        margin-bottom: 0.8rem;
+        font-size: 1rem;
+      }
+    }
+  }
+}

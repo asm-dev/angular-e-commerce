@@ -1,6 +1,11 @@
-<h2>Categorías</h2>
-<ul>
-  <li *ngFor="let category of categories">
-    <button (click)="goToCategory(category)">{{ category }}</button>
-  </li>
-</ul>
+<div class="categories-container">
+  <h2>Explora productos por categoría</h2>
+  <div class="category-list">
+    <button
+      *ngFor="let category of categories"
+      (click)="goToCategory(category)"
+    >
+      {{ category | capitalize }}
+    </button>
+  </div>
+</div>
