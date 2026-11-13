@@ -1,43 +1,43 @@
-# Tienda Online - Proyecto Angular
+# Online Store - Angular Project
 
-Este proyecto forma parte de una actividad del máster de desarrollo web avanzado, centrada en la aplicación de conceptos clave del framework Angular. El objetivo principal es implementar una tienda online que consuma datos de una API externa utilizando un enfoque moderno basado en _standalone components_. Entre los requisitos de la actividad se incluía la creación de rutas dinámicas, el uso de un servicio para gestionar la obtención de datos desde una API pública, la creación y uso de _pipes_ personalizadas, así como la estructuración del proyecto siguiendo buenas prácticas tanto a nivel de estilo como de arquitectura.
+This project is part of an activity from the advanced web development master's program, focused on applying key concepts of the Angular framework. The main goal is to implement an online store that consumes data from an external API using a modern approach based on _standalone components_. The activity requirements included creating dynamic routes, using a service to manage data retrieval from a public API, creating and using custom _pipes_, and structuring the project following best practices in both style and architecture.
 
-Además, se aprovecha para hacer un **deploy** de esta POC en **Firebase**, puedes verlo en [este link](https://poc-angular-shop.web.app/).
+Additionally, this is a chance to **deploy** this POC on **Firebase**; you can see it at [this link](https://poc-angular-shop.web.app/).
 
-## Estructura funcional del proyecto
+## Functional structure of the project
 
-El proyecto está organizado en componentes independientes que reflejan una arquitectura clara basada en vistas. Se ha utilizado el sistema de rutas de Angular para navegar entre las distintas secciones de la aplicación de forma dinámica.
+The project is organized into independent components that reflect a clear view-based architecture. Angular's routing system has been used to navigate dynamically between the different sections of the application.
 
-### Servicio de datos
+### Data service
 
-Toda la interacción con la API se realiza mediante un servicio centralizado (`ProductService`). Este servicio utiliza `HttpClient` para realizar peticiones HTTP a los diferentes endpoints expuestos por la API de Fake Store. De este modo, el servicio encapsula la lógica de acceso a datos y facilita su reutilización por parte de los componentes.
+All interaction with the API is done through a centralized service (`ProductService`). This service uses `HttpClient` to make HTTP requests to the different endpoints exposed by the Fake Store API. This way, the service encapsulates the data access logic and makes it easy for components to reuse it.
 
-Las rutas que se consumen desde el servicio son:
+The routes consumed from the service are:
 
-- `/products/categories`: devuelve un array de strings con los nombres de las categorías disponibles de productos
-- `/products/category/:category`: devuelve todos los productos de una categoría concreta
-- `/products/:id`: devuelve los detalles de un producto en concreto
+- `/products/categories`: returns an array of strings with the names of the available product categories
+- `/products/category/:category`: returns all the products of a specific category
+- `/products/:id`: returns the details of a specific product
 
-### Componentes
+### Components
 
-- `CategoriesComponent`: muestra las categorías disponibles en la API. Cada categoría se presenta como un botón que redirige al listado de productos correspondientes.
-- `ProductsComponent`: muestra un grid de productos pertenecientes a una categoría. Cada producto contiene una imagen, un título, un precio y un botón para acceder a su vista detallada.
-- `ProductDetailComponent`: presenta información completa sobre un producto concreto, incluyendo la descripción, la categoría a la que pertenece, el precio y la imagen correspondiente.
+- `CategoriesComponent`: shows the categories available in the API. Each category is presented as a button that redirects to the list of corresponding products.
+- `ProductsComponent`: shows a grid of products belonging to a category. Each product contains an image, a title, a price and a button to access its detail view.
+- `ProductDetailComponent`: presents complete information about a specific product, including the description, the category it belongs to, the price and the corresponding image.
 
-### Pipes personalizadas
+### Custom pipes
 
-Se ha creado una pipe personalizada llamada `CapitalizePipe` que transforma la primera letra de una cadena a mayúscula, dejando el resto en minúsculas. Esta pipe se ha utilizado, por ejemplo, para mejorar la presentación del nombre de las categorías.
+A custom pipe called `CapitalizePipe` has been created that converts the first letter of a string to uppercase, leaving the rest in lowercase. This pipe has been used, for example, to improve the presentation of category names.
 
-### Estilos y estructura visual
+### Styles and visual structure
 
-Los estilos se han implementado utilizando ficheros SCSS específicos para cada componente, con el fin de mantener una separación clara de responsabilidades y facilitar el mantenimiento. Se ha utilizado una tipografía moderna, una paleta de colores neutra con detalles en azul oscuro, y un sistema de diseño basado en tarjetas (_cards_) para presentar los productos de manera clara y coherente. La estructura visual se ha desarrollado con técnicas como _Flexbox_ y _Grid_, asegurando una presentación equilibrada y centrada tanto en escritorio como en pantallas reducidas.
+Styles have been implemented using SCSS files specific to each component, in order to keep a clear separation of concerns and ease maintenance. A modern typeface, a neutral color palette with dark blue accents, and a card-based design system (_cards_) have been used to present the products in a clear and consistent way. The visual structure has been built with techniques such as _Flexbox_ and _Grid_, ensuring a balanced and centered presentation on both desktop and small screens.
 
-## Posibles ampliaciones
+## Possible extensions
 
-Este proyecto puede extenderse fácilmente para incluir funcionalidades como:
+This project can easily be extended to include features such as:
 
-- Gestión de un carrito de compra con almacenamiento en local o estado compartido
-- Añadir paginación o carga por scroll
-- Agregar filtros avanzados por precio o categoría
-- Implementar un sistema de autenticación y login para simular una experiencia real de e-commerce
-- Despliegue continuo con Firebase Hosting, GitHub Actions u otras plataformas
+- Shopping cart management with local storage or shared state
+- Adding pagination or scroll-based loading
+- Adding advanced filters by price or category
+- Implementing an authentication and login system to simulate a real e-commerce experience
+- Continuous deployment with Firebase Hosting, GitHub Actions or other platforms
